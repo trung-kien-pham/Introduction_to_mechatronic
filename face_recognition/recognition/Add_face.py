@@ -33,7 +33,7 @@ class AddFace:
             x, y, w, h = largest_face['box']
             detected_face = self.frame[y:y+h, x:x+w]
 
-            result = DeepFace.verify(self.frame, known_image, threshold=0.3, model_name="Facenet512", enforce_detection=False)
+            result = DeepFace.verify(detected_face, known_image, threshold=0.3, model_name="Facenet512", enforce_detection=False)
             if result["verified"]:
                 print("Face is available.")
                 return
