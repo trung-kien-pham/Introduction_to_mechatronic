@@ -1,4 +1,4 @@
-# Automatic Door Using Based on Deeplearning and Ultrasonic
+# Automatic Door Based on Deeplearning and Ultrasonic
 
 ### Repo Collaborators
 
@@ -32,11 +32,11 @@
 └── README.md
 ```
 
-## Dir Description
+## Dirdirectory Description
 
 - **face_recognition/**: Face recognition and adding a face upon receiving a signal from Arduino.
 - **src/**: Controlling hardware via Arduino.
-- **requirements.txt**: requirements python package.
+- **requirements.txt**: requirements python packages.
 
 # Description
 
@@ -60,7 +60,7 @@
 git clone https://github.com/trung-kien-pham/Introduction_to_mechatronic.git
 ```
 
-- Install requirement package.
+- Install requirement packages.
 
 ```bash
 pip install requirements.txt
