@@ -36,8 +36,8 @@ class AddFace:
             results = DeepFace.find(detected_face, self.face_folder, model_name="Facenet512", distance_metric="cosine")
 
             best_match = results[0].iloc[0]
-            
-            if best_match < 0.3:
+
+            if best_match > 0.3:
                 # Save the detected largest face to the specified folder
                 face_img_path = f"{self.face_folder}/{uuid.uuid4()}.jpg"
                 cv2.imwrite(face_img_path, detected_face)
