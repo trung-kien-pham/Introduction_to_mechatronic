@@ -26,6 +26,7 @@ class AddFace:
 
         faces = detector.detect_faces(self.frame)
         if faces:
+            
             print("Face(s) detected. Processing the face(s)...")
             
             # Find the face with the largest bounding box
@@ -42,6 +43,9 @@ class AddFace:
                 face_img_path = f"{self.face_folder}/{uuid.uuid4()}.jpg"
                 cv2.imwrite(face_img_path, detected_face)
                 print(f"Face saved: {face_img_path}")
+            else:
+                print("Face is available")
+
         else:
             print("No face detected in the captured image.")
 
