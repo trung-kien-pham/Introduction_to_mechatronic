@@ -3,6 +3,7 @@ import cv2
 import uuid
 import time
 from mtcnn import MTCNN
+from deepface import DeepFace
 
 class AddFace:
 
@@ -32,10 +33,15 @@ class AddFace:
             x, y, w, h = largest_face['box']
             detected_face = self.frame[y:y+h, x:x+w]
 
-            # Save the detected largest face to the specified folder
-            face_img_path = f"{self.face_folder}/{uuid.uuid4()}.jpg"
-            cv2.imwrite(face_img_path, detected_face)
-            print(f"Face saved: {face_img_path}")
+            result = DeepFace.verify(self.frame, known_image, threshold=0.3, model_name="Facenet512", enforce_detection=False)
+            if result["verified"]:
+                print("Face is available.")
+                return
+            else:
+                # Save the detected largest face to the specified folder
+                face_img_path = f"{self.face_folder}/{uuid.uuid4()}.jpg"
+                cv2.imwrite(face_img_path, detected_face)
+                print(f"Face saved: {face_img_path}")
         else:
             print("No face detected in the captured image.")
 
