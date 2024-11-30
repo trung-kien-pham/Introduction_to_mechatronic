@@ -1,18 +1,26 @@
 import cv2
-import serial
 import time
-from recognition.Face_recognition import FaceRecognition
+import serial
+import screeninfo
 from recognition.Add_face import AddFace
+from recognition.Face_recognition import FaceRecognition
 
 arduino = serial.Serial('COM6', 9600)
 time.sleep(2)
 
 face_folder = 'face_recognition_code/knew_faces'
 
-video_capture = cv2.VideoCapture(0)
+screen = screeninfo.get_monitors()[0]
+screen_width = screen.width
+screen_height = screen.height
+
+video_capture = cv2.VideoCapture(0) # modif camera id
 
 if not video_capture.isOpened():
     print("Can't open camera!")
+
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, screen_width)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, screen_height)
 
 while True:
 
@@ -32,6 +40,7 @@ while True:
             ret, frame = video_capture.read()
             face_recognition = FaceRecognition(face_folder=face_folder, frame=frame)
             verify_image = face_recognition.face_recognition()
+
 
             if verify_image:
                 arduino.write(b"open\n")

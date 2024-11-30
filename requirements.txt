@@ -1,0 +1,5 @@
+pyserial==3.5
+opencv-python==4.10.0.84
+deepface==0.0.93
+mtcnn==1.0.0
+screeninfo==0.8.1

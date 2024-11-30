@@ -1,9 +1,17 @@
 import cv2
+import screeninfo
+
+screen = screeninfo.get_monitors()[0]
+screen_width = screen.width
+screen_height = screen.height
 
 cap = cv2.VideoCapture(0)
 
 if not cap.isOpened():
     print("Không thể mở camera")
+
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, screen_width)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, screen_height)
 
 while True:
     ret, frame = cap.read()
