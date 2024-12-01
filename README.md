@@ -77,4 +77,6 @@ pio run --target upload
 ```bash
 python main.py
 ```
-Note: <br>If using an external camera, the user needs to modify line 17 in the `main.py` file.
+# Note: 
+- <br>If using an external camera, the user needs to modify line 17 in the `main.py` file.
+- <br>Requires `PlatformIO` to work
