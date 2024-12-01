@@ -48,7 +48,7 @@
 - Opening the door via Arduino and a servo motor.
 
 ## Hardware
-- Ardurino UNO R3
+- Arduino UNO R3
 - Ultrasonic HC-SR04
 - Servo MG996R
 - Keypad 3x4
