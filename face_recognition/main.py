@@ -19,8 +19,8 @@ video_capture = cv2.VideoCapture(0) # modif camera id
 if not video_capture.isOpened():
     print("Can't open camera!")
 
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, screen_width)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, screen_height)
+video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, screen_width)
+video_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, screen_height)
 
 while True:
 

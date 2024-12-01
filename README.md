@@ -63,7 +63,7 @@ git clone https://github.com/trung-kien-pham/Introduction_to_mechatronic.git
 - Install requirement packages.
 
 ```bash
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 - Upload the code to Arduino. 
