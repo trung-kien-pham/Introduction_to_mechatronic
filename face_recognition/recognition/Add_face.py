@@ -40,10 +40,15 @@ class AddFace:
                 result = DeepFace.verify(self.frame, known_image, threshold=0.3, model_name="Facenet512", enforce_detection=False)
 
                 if result["verified"]:
-                    pass
+                    continue
                 else:
-                    print("Face is available")
+                    face_img_path = f"{self.face_folder}/{uuid.uuid4()}.jpg"
+                    cv2.imwrite(face_img_path, detected_face)
+                    print(f"Face saved: {face_img_path}")
                     return
+
+            print("Face is available")
+
 
         else:
             print("No face detected in the captured image.")
