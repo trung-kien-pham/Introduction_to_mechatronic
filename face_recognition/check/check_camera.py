@@ -7,11 +7,11 @@ screen_height = screen.height
 
 cap = cv2.VideoCapture(0)
 
-if not cap.isOpened():
+if not video_capture.isOpened():
     print("Không thể mở camera")
 
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, screen_width)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, screen_height)
+video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, screen_width)
+video_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, screen_height)
 
 while True:
     ret, frame = cap.read()
