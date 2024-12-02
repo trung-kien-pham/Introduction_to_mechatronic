@@ -5,16 +5,16 @@ import screeninfo
 from recognition.Add_face import AddFace
 from recognition.Face_recognition import FaceRecognition
 
-arduino = serial.Serial('COM6', 9600)
+arduino = serial.Serial('COM6', 9600) # modidf COM
 time.sleep(2)
 
-face_folder = 'face_recognition_code/knew_faces'
+face_folder = 'face_recognition/knew_faces'
 
 screen = screeninfo.get_monitors()[0]
 screen_width = screen.width
 screen_height = screen.height
 
-video_capture = cv2.VideoCapture(0) # modif camera id
+video_capture = cv2.VideoCapture(0) # modidf camera id
 
 if not video_capture.isOpened():
     print("Can't open camera!")
