@@ -34,17 +34,16 @@ class AddFace:
             x, y, w, h = largest_face['box']
             detected_face = self.frame[y:y+h, x:x+w]
 
-            results = DeepFace.find(detected_face, self.face_folder, model_name="Facenet512", distance_metric="cosine")
+            for image_name in os.listdir(self.face_folder):
+                image_path = os.path.join(self.face_folder, image_name)
+                known_image = cv2.imread(image_path)
+                result = DeepFace.verify(self.frame, known_image, threshold=0.3, model_name="Facenet512", enforce_detection=False)
 
-            best_match = results[0].iloc[0]
-
-            if best_match > 0.3:
-                # Save the detected largest face to the specified folder
-                face_img_path = f"{self.face_folder}/{uuid.uuid4()}.jpg"
-                cv2.imwrite(face_img_path, detected_face)
-                print(f"Face saved: {face_img_path}")
-            else:
-                print("Face is available")
+                if result["verified"]:
+                    pass
+                else:
+                    print("Face is available")
+                    return
 
         else:
             print("No face detected in the captured image.")
